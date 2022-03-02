@@ -1,0 +1,26 @@
+name: bigbasin
+dependencies:
+  - dask
+  - distributed
+  - fsspec
+  - ipykernel
+  - ipywidgets
+  - joblib
+  - matplotlib
+  - numba
+  - numpy
+  - pandas
+  - pip
+  - pyarrow
+  - python>=3.7
+  - scikit-learn
+  - scipy
+  - setuptools
+  - tqdm
+  - wheel
+  - pip:
+      - python-dotenv
+      - adlfs
+      - git+https://github.com/TutteInstitute/vectorizers.git
+      - umap-learn[plot]
+      - bqplot
