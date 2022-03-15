@@ -4,6 +4,10 @@ This work aims at embedding files of binary code, whether fresh object modules o
 
 The computation of such embeddings and their visualization is all performed in this [notebook](embedding.ipynb). Another notebook presents the [exploratory data analysis](eda.ipynb) of the dataset.
 
+## Acknowledgments
+
+I would like to thank Colin Weir, Leland McInnes and John Healy for thoughtful conversation about this work, and their material contributions in the form of the [UMAP](https://umap-learn.readthedocs.io/en/latest/) and [Vectorizers](https://vectorizers.readthedocs.io/en/latest/) libraries.
+
 ## Isolating computations
 
 As with any Python-based project, it is best to isolate its dependencies in its own virtual environment.
