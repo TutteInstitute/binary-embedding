@@ -1,28 +1,30 @@
 # Binary similarity assessment based on embedding and visualization
 
-The fun stuff is in this [notebook](embedding.ipynb).
+This work aims at embedding files of binary code, whether fresh object modules or fully linked executables and libraries, or even raw memory scrapes. The key is that we expect the code to have been processed by a disassembler (such as [Ghidra](https://ghidra-sre.org/)) that would provide typology of the instructions, as well as the *branch structure* of the binary. This work targets a private dataset composed of binaries thus preprocessed, which provides dataframes where every record corresponds to a function (as understood by the disassembler's heuristics). It processes this data into a vector representation for each binary: bringing the dimension of such vectors down to 2 enables their direct visualization, in the form of a *map* where similar binaries aggregate closer together, and dissimilar binaries push away for each other.
 
-## Running it locally
+The computation of such embeddings and their visualization is all performed in this [notebook](embedding.ipynb). Another notebook presents the [exploratory data analysis](eda.ipynb) of the dataset.
 
-Use Conda to gather the dependencies in a cozy environment.
+## Isolating computations
 
-```
-conda env create
-conda activate bigbasin
-```
+As with any Python-based project, it is best to isolate its dependencies in its own virtual environment.
 
-This environment would pull in only what is necessary to make a Jupyter kernel that integrates in a Jupyter-Conda system that automates the inclusion of environment-based kernels (e.g. `nb_conda_kernels` is a dependency of the compute environment of the Jupyter daemon). If you run on an external Jupyter system (e.g. Jupyterhub) that does not automate this, you can run:
 
-`python -m ipykernel install --user --display-name BigBasin`
+### Conda-based setup
 
-A kernel named `BigBasin` would eventually appear in the kernel list. Alternatively, if you don't have a Jupyter daemon already run for you, you should install one for this environment:
+If you are familiar with [Conda](https://docs.conda.io/en/latest/), you can get going simply with
 
 ```
-conda install jupyterlab
+conda create -n binary-embedding python jupyterlab
 ```
 
-and then run it:
+You can then run `jupyter lab` to get started. If you already have your own Jupyter instance running, or work under a Jupyterhub instance, ensure it is deployed with the [nb\_conda\_kernels](https://github.com/Anaconda-Platform/nb_conda_kernels) extension, so it will discover and run your new environment as its own Jupyter kernel.
+
+### Alternative
+
+If you don't use Conda, you can set yourself up instead with a native virtual environment. For that, simply use the included `env.py` script:
 
 ```
-jupyter lab
+python env.py
 ```
+
+It does its best effort to detect whether it should install Jupyter Lab for you, or attempt to integrate with an outstanding Jupyter system. Use its `--help` if you would know more about the artifacts it generates and how to customize them.
