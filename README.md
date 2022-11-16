@@ -18,7 +18,7 @@ As with any Python-based project, it is best to isolate its dependencies in its 
 If you are familiar with [Conda](https://docs.conda.io/en/latest/), you can get going simply with
 
 ```
-conda create -n binary-embedding python jupyterlab
+conda create -n binary-embedding python ipykernel jupyterlab
 ```
 
 You can then run `jupyter lab` to get started. If you already have your own Jupyter instance running, or work under a Jupyterhub instance, ensure it is deployed with the [nb\_conda\_kernels](https://github.com/Anaconda-Platform/nb_conda_kernels) extension, so it will discover and run your new environment as its own Jupyter kernel.
